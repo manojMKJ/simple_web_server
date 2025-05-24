@@ -116,7 +116,8 @@ httpd.serve_forever()
 # OUTPUT:
 ![Screenshot (558) 1](https://github.com/user-attachments/assets/a7efae14-5ea2-4fb1-9bf8-0c1fa65eaee2)
 
-![alt text](<Screenshot (556).png>)
+![alt text](![FWAD image](https://github.com/user-attachments/assets/488be191-e720-4d99-967b-dbad2e7f2d5c)
+)
 
 
 # RESULT:
