@@ -1,6 +1,6 @@
-# EX01 Developing a Simple Webserver
 
-# Date:21.03.25
+
+# Date:28/03/2025
 # AIM:
 To develop a simple webserver to serve html pages and display the configuration details of laptop.
 
@@ -22,47 +22,102 @@ Testing the webserver.
 
 # PROGRAM:
 ```
-<doctype html>
-    <html>
-        <head>
-            <b><center>LAPTOP CONFIGURATION</center></b>
-        </head>
-        <body>
-            <center>
-            <table border= "2" bgcolor="aqua" cellpadding="10" cellspacing="5" allign="center">
-                <tr>
-                    <th>System configuration</th>
-                    <th> Description</th>
-                </tr>
-                <tr>
-                    <th>Processor</th>
-                    <th>i5</th>
-                </tr>
-                <tr>
-                    <th>Primary Memory</th>
-                    <th>Ram 16 GB</th>
-                </tr>
-                <tr>
-                    <th>Secondary Memory</th>
-                    <th>512 GB</th>
-                </tr>
-                <tr>
-                    <th>0.S</th>
-                    <th>Windows 11</th>
-                </tr>
-                <tr>
-                    <th>Graphic</th>
-                    <th>nvidia</th>
-                </tr>
-            </table>
-            </center>
-            
-        </body>
-    </html>
+from http.server import HTTPServer,BaseHTTPRequestHandler
+
+content = """
+
+<html>
+
+    
+<title> Top Software Industries </title>
+
+<body>
+    
+<table border="2" cellspacing="10"cellpadding="6">
+    
+<caption>Top 5 Revenue Generating Software Companies </caption>
+
+<tr>
+    
+<th>s.no</th>
+
+<th>companies</th>
+
+<th>revenue</th>
+
+</tr>
+
+<tr>
+    
+<th>1</th>
+
+<th>Microsoft</th>
+
+<th>65 billion</th>
+
+</tr>
+
+<tr>
+    
+<th>2</th>
+
+<th>oracle</th>
+
+<th>29.6 billion</th>
+
+</tr>
+
+<tr>
+    
+<th>3</th>
+
+<th>IBM</th>
+
+<th>29.1 billion</th>
+
+</tr>
+
+<tr>
+    
+<th>5</th>
+
+<th>symentec</th>
+
+<th>5.6 billion</th>
+
+</body>
+
+</html>
+
+"""
+class myhandler(BaseHTTPRequestHandler):
+
+    def do_GET(self):
+    
+        print("request received")
+        
+        self.send_response(200)
+        
+        self.send_header('content-type','text/html; charset=utf-8')
+        
+        self.end_headers()
+        
+        self.wfile.write(content.encode())
+        
+server_address = ('',8000)
+
+httpd = HTTPServer(server_address,myhandler)
+
+print("my webserver is running...")
+
+httpd.serve_forever()
+
 ```
 # OUTPUT:
-![Terminal](https://github.com/user-attachments/assets/cd621e2a-460f-4245-990d-b75fe29c8e12)
+![Screenshot (558) 1](https://github.com/user-attachments/assets/a7efae14-5ea2-4fb1-9bf8-0c1fa65eaee2)
 
-![alt text](<Screenshot 2025-03-21 215910.png>)
+![alt text](<Screenshot (556).png>)
+
+
 # RESULT:
 The program for implementing simple webserver is executed successfully.
